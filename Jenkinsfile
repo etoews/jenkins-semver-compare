@@ -19,20 +19,19 @@ pipeline {
                         current_version = current_versions[i]
 
                         try {
-                            result = semver_compare(desired_version, current_version)
+                            semver_compare_result = semver_compare(desired_version, current_version)
+                            echo "semver_compare_result: ${semver_compare_result}"
                         }
                         catch(err) {
                             echo "${err}"
                             continue
                         }
 
-                        echo "in pipeline: result: ${result}"
-
                         if (result > 0) {
-                            echo "Desired Version ${desired_version} of the EdPay DAL Schema is greater than Current Version ${current_version}, applying EdPay DAL Schema to DB."
+                            echo "Desired Version ${desired_version} is greater than Current Version ${current_version}, execute action."
                         }
                         else {
-                            echo "Desired Version ${desired_version} of the EdPay DAL Schema is less than or equal to Current Version ${current_version}, skipping apply."
+                            echo "Desired Version ${desired_version} is less than or equal to Current Version ${current_version}, skip action."
                         }
                     }
                 }
