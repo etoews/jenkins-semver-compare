@@ -27,7 +27,7 @@ pipeline {
                             continue
                         }
 
-                        if (result > 0) {
+                        if (semver_compare_result > 0) {
                             echo "Desired Version ${desired_version} is greater than Current Version ${current_version}, execute action."
                         }
                         else {
