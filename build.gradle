@@ -1,0 +1,43 @@
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.13'
+    compile 'com.cloudbees:groovy-cps:1.1'
+
+    testCompile 'org.assertj:assertj-core:3.9.0'
+    testCompile "org.junit.jupiter:junit-jupiter-api:5.0.3"
+    testCompile 'org.junit.jupiter:junit-jupiter-params:5.0.3'
+
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.0.3'
+    testRuntime 'org.junit.jupiter:junit-jupiter-params:5.0.3'
+}
+
+compileTestGroovy {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+compileGroovy {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+test {
+    useJUnitPlatform()
+}
+sourceSets {
+    main {
+        groovy {
+            srcDirs = ['src', 'vars']
+        }
+    }
+    test {
+        groovy {
+            srcDirs = ['test', 'varsTest']
+        }
+    }
+}
