@@ -343,7 +343,7 @@ public final class SemanticVersion implements Comparable<SemanticVersion>, Seria
 			errPos = index;
 			return false;
 		}
-		if (input[0] == '0' && pos - index > 1) { // Leading zero
+		if (input[0 + index] == '0' && pos - index > 1) { // Leading zero
 			errPos = index;
 			return false;
 		}
@@ -366,7 +366,7 @@ public final class SemanticVersion implements Comparable<SemanticVersion>, Seria
 			errPos = index;
 			return false;
 		}
-		if (input[0] == '0' && pos - index > 1) { // Leading zero
+		if (input[0 + index] == '0' && pos - index > 1) { // Leading zero
 			errPos = index;
 			return false;
 		}
