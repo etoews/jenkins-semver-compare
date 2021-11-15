@@ -1,4 +1,4 @@
-@Library('semver-compare-lib@1.0.0') _
+@Library('semver-compare-lib@fix-valid-semver') _
 
 pipeline {
     agent {
